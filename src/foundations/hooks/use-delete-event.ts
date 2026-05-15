@@ -1,0 +1,31 @@
+'use client';
+
+import { deleteEvent } from '@/src/infra/services/event.service';
+import { useMutation } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
+
+import { toast } from 'sonner';
+
+export function useDeleteEvent() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: deleteEvent,
+
+    onSuccess: () => {
+      toast.success(
+        'Evento removido',
+      );
+
+      queryClient.invalidateQueries({
+        queryKey: ['events'],
+      });
+    },
+
+    onError: () => {
+      toast.error(
+        'Erro ao remover evento',
+      );
+    },
+  });
+}
