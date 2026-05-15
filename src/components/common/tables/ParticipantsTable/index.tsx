@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Participant } from "@infra/schemas/participant/participant.schema";
 import { Button } from "@components/ui/Button";
+import { getErrorMessage } from "@infra/helpers/getErrorMessage";
 
 interface Props {
   participants: Participant[];
@@ -43,8 +44,7 @@ export function ParticipantsTable({ participants, eventStatus, onCheckin }: Prop
     } catch (err: unknown) {
       setErrorByParticipant(prev => ({
         ...prev,
-        [participant.id]: err?.message || "Erro inesperado"
-      }));
+        [participant.id]: getErrorMessage(err, "Erro inesperado")}));
     } finally {
       setLoadingId(null);
     }
