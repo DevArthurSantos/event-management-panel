@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from './providers';
 import "./global.css";
+import "@tailwindplus/elements";
+
 
 
 const interFont = Inter({
@@ -22,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-      className={`${interFont.variable} h-full antialiased`}>
+      className={`${interFont.variable} h-full antialiased overflow-hidden`}>
         <Providers>{children}</Providers>
       </body>
     </html>
