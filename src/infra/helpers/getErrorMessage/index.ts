@@ -4,7 +4,8 @@ export function getErrorMessage(
   err: unknown,
   fallback = 'Erro inesperado'
 ): string {
-  // ✅ Se for string pura (muito comum no NextAuth)
+
+  console.log(err)
   if (typeof err === 'string') {
     return err;
   }
@@ -12,10 +13,8 @@ export function getErrorMessage(
   if (err instanceof AxiosError) {
     const data = err.response?.data;
 
-    // Prioridade 1: código de erro (ex: NETWORK_INACTIVE)
     if (data?.code) return String(data.code);
 
-    // Prioridade 2: mensagem
     if (data?.message) {
       if (Array.isArray(data.message)) return data.message[0];
       return String(data.message);

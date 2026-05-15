@@ -23,6 +23,7 @@ export function useCheckinMutation() {
 
   return useMutation({
     mutationFn: async ({ event, participant, action }: Params) => {
+
       if (action === 'exit') {
         if (participant.type !== 'vip') {
           return { success: false, reason: 'Apenas VIPs podem registrar saída.' };
@@ -51,6 +52,14 @@ export function useCheckinMutation() {
         return {
           success: false,
           reason: 'VIP já está dentro. Faça a saída primeiro.',
+        };
+      }
+
+
+      if (event.status === 'cancelled') {
+        return {
+          success: false,
+          reason: 'O evento esta cancelado!',
         };
       }
 
