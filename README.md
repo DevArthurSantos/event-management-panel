@@ -10,6 +10,7 @@ O **AuraEvent** é uma aplicação completa para gerenciamento de eventos, proje
 
 A interface foi construída priorizando usabilidade, clareza visual e feedback em tempo real, oferecendo uma experiência profissional tanto para organizadores quanto para participantes.
 
+link: [AuraEvent](https://event-management-panel.vercel.app)
 ---
 
 ## 🚀 Funcionalidades
