@@ -1,7 +1,7 @@
 'use client';
 
-import { useEvents } from "@/foundations/hooks/use-events";
-import { Event } from "@/infra/schemas/event.schema";
+import { useEvents } from "@/src/foundations/hooks/use-events";
+import { Event } from "@/src/infra/schemas/event.schema";
 
 
 export default function EventsPage() {
