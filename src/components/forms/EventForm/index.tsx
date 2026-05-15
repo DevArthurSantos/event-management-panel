@@ -3,16 +3,20 @@
 import { useForm } from 'react-hook-form';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Event, eventSchema } from '@/src/infra/schemas/event.schema';
+
+import {
+  createEventSchema,
+  CreateEventInput,
+} from '@/src/infra/schemas/event/create-event.schema';
+
 import { Input } from '@/src/components/ui/forms/Inputs';
 import { Button } from '@/src/components/ui/Button';
 
-
 interface Props {
-  defaultValues?: Partial<Event>;
+  defaultValues?: Partial<CreateEventInput>;
 
   onSubmit: (
-    values: Event,
+    values: CreateEventInput,
   ) => Promise<void>;
 }
 
@@ -25,8 +29,10 @@ export function EventForm({
     handleSubmit,
 
     formState: { errors, isSubmitting },
-  } = useForm<Event>({
-    resolver: zodResolver(eventSchema),
+  } = useForm<CreateEventInput>({
+    resolver: zodResolver(
+      createEventSchema
+    ),
 
     defaultValues,
   });
@@ -66,6 +72,13 @@ export function EventForm({
         <Input
           type="date"
           {...register('date')}
+        />
+      </div>
+
+      <div>
+        <Input
+          placeholder="Descrição"
+          {...register('description')}
         />
       </div>
 

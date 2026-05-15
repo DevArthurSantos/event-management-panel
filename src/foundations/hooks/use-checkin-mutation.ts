@@ -2,8 +2,8 @@
 
 import { canCheckin } from '@/src/infra/helpers/business/can-checkin';
 import { calculateEntryRate } from '@/src/infra/helpers/calculate-entry-rate';
-import { Event } from '@/src/infra/schemas/event.schema';
-import { Participant } from '@/src/infra/schemas/participant.schema';
+import { Event } from '@/src/infra/schemas/event/event.schema';
+import { Participant } from '@/src/infra/schemas/participant/participant.schema';
 import { createCheckin } from '@/src/infra/services/checkin.service';
 import { updateEvent } from '@/src/infra/services/event.service';
 import { updateParticipant } from '@/src/infra/services/participant.service';

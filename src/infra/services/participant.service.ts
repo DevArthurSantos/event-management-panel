@@ -1,5 +1,5 @@
-import { participantSchema } from '../schemas/participant.schema';
 import { api } from '@/src/infra/services/api.service';
+import { participantSchema } from '@/src/infra/schemas/participant/participant.schema';
 
 export async function getParticipantsByEvent(
   eventId: string,

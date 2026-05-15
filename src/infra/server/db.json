@@ -59,6 +59,18 @@
       "checkin_count": 18,
       "error_count": 1,
       "entry_rate": 0.9
+    },
+    {
+      "name": "teste",
+      "date": "4512-03-12",
+      "location": "teste",
+      "description": "123",
+      "expected_count": 123,
+      "id": "WIBVm4-4Wuw",
+      "status": "active",
+      "checkin_count": 0,
+      "error_count": 0,
+      "entry_rate": 0
     }
   ],
   "participants": [
@@ -579,6 +591,14 @@
       "event_id": "EVT-005",
       "name": "Isabela Oliveira",
       "type": "normal",
+      "status": "outside",
+      "checkin_count": 0
+    },
+    {
+      "name": "teste",
+      "type": "normal",
+      "id": "wJ9brRrT8w0",
+      "event_id": "WIBVm4-4Wuw",
       "status": "outside",
       "checkin_count": 0
     }
@@ -1313,5 +1333,6 @@
       "action": "exit",
       "error_reason": null
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

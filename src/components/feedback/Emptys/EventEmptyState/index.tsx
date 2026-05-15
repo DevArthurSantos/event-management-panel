@@ -14,7 +14,7 @@ function EventErrorState() {
           Não foi possível carregar os dados do evento.
         </p>
 
-        <Link href="/eventos">
+        <Link href="/events">
           <Button>
             Voltar
           </Button>

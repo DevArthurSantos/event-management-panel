@@ -8,7 +8,7 @@ import { Button } from '@/src/components/ui/Button';
 import { Input } from '@/src/components/ui/forms/Inputs';
 import { useEvents } from '@/src/foundations/hooks/use-events';
 import { useUIStore } from '@/src/foundations/stores/ui.store';
-import { Event } from '@/src/infra/schemas/event.schema';
+import { Event } from '@/src/infra/schemas/event/event.schema';
 import Link from 'next/link';
 
 import { useMemo } from 'react';

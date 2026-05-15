@@ -1,5 +1,5 @@
 import { Participant } from "@/src/infra/schemas/participant.schema";
-import { Event } from "@/src/infra/schemas/event.schema";
+import { Event } from "@/src/infra/schemas/event/event.schema";
 
 
 interface Result {

@@ -3,15 +3,16 @@
 import { useForm } from 'react-hook-form';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Participant, participantSchema } from '@/src/infra/schemas/participant.schema';
 import { Input } from '@/src/components/ui/forms/Inputs';
 import { Button } from '@/src/components/ui/Button';
+import { CreateParticipantInput, createParticipantSchema } from '@/src/infra/schemas/participant/create-participant.schema';
+
 
 interface Props {
-  defaultValues?: Partial<Participant>;
+  defaultValues?: Partial<CreateParticipantInput>;
 
   onSubmit: (
-    values: Participant,
+    values: CreateParticipantInput,
   ) => Promise<void>;
 }
 
@@ -19,17 +20,17 @@ export function ParticipantForm({
   defaultValues,
   onSubmit,
 }: Props) {
+
   const {
     register,
     handleSubmit,
-
     formState: {
       errors,
       isSubmitting,
     },
-  } = useForm<Participant>({
+  } = useForm<CreateParticipantInput>({
     resolver: zodResolver(
-      participantSchema,
+      createParticipantSchema
     ),
 
     defaultValues,
@@ -40,19 +41,6 @@ export function ParticipantForm({
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-5"
     >
-      <div>
-        <Input
-          placeholder="Nome"
-          {...register('name')}
-        />
-
-        {errors.name && (
-          <p className="mt-2 text-sm text-red-500">
-            {errors.name.message}
-          </p>
-        )}
-      </div>
-
       <div>
         <Input
           placeholder="name"

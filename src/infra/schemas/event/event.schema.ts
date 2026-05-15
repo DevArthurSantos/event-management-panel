@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { participantSchema } from './participant.schema';
-import { checkinSchema } from './checkin.schema';
+import { participantSchema } from '../participant/participant.schema';
+import { checkinSchema } from '../chekin/checkin.schema';
 
 export const eventSchema = z.object({
   id: z.string(),

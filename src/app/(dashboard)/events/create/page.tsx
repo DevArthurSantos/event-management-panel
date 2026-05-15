@@ -2,7 +2,7 @@
 
 import { EventForm } from '@/src/components/forms/EventForm';
 import { useCreateEvent } from '@/src/foundations/hooks/use-create-event';
-import { Event } from '@/src/infra/schemas/event.schema';
+import { CreateEventInput } from '@/src/infra/schemas/event/create-event.schema';
 import { useRouter } from 'next/navigation';
 
 export default function CreateEventPage() {
@@ -10,7 +10,10 @@ export default function CreateEventPage() {
 
   const mutation = useCreateEvent();
 
-  async function handleSubmit(values: Event) {
+
+  async function handleSubmit(
+    values: CreateEventInput
+  ) {
     await mutation.mutateAsync({
       ...values,
       id: crypto.randomUUID(),
@@ -20,9 +23,8 @@ export default function CreateEventPage() {
       entry_rate: 0,
     });
 
-    router.push('/eventos');
+    router.push('/events');
   }
-
   return (
     <main className="mx-auto max-w-2xl p-6">
       <div className="mb-8">

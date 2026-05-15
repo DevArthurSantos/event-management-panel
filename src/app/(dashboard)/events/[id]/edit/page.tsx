@@ -1,9 +1,10 @@
 'use client';
 
-import { EventForm } from '@/src/components/forms/event-form';
+import LoadingEventState from '@/src/components/feedback/loadings/LoadingEventState';
+import { EventForm } from '@/src/components/forms/EventForm';
 import { useEvent } from '@/src/foundations/hooks/use-event';
 import { useUpdateEvent } from '@/src/foundations/hooks/use-update-event';
-import { Event } from '@/src/infra/schemas/event.schema';
+import { CreateEventInput } from '@/src/infra/schemas/event/create-event.schema';
 import { useRouter } from 'next/navigation';
 import { useParams } from 'next/navigation';
 
@@ -20,16 +21,16 @@ export default function EditEventPage() {
   const mutation = useUpdateEvent();
 
   if (isLoading || !data) {
-    return <LoadingState />;
+    return <LoadingEventState />;
   }
 
-  async function handleSubmit(values: Event) {
+  async function handleSubmit(values: CreateEventInput) {
     await mutation.mutateAsync({
       id: eventId,
       payload: values,
     });
 
-    router.push('/eventos');
+    router.push('/events');
   }
 
   return (

@@ -24,7 +24,7 @@ export function DeleteEventButton({
 
     await mutation.mutateAsync(eventId);
 
-    router.push('/eventos');
+    router.push('/events');
   }
 
   return (

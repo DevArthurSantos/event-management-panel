@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useParams } from 'next/navigation';
 
-import { Participant } from '@/src/infra/schemas/participant.schema';
+import { Participant } from '@/src/infra/schemas/participant/participant.schema';
 import { useCreateParticipant } from '@/src/foundations/hooks/use-create-participant';
 import { ParticipantForm } from '@/src/components/forms/ParticipantForm';
 
