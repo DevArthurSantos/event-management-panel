@@ -16,6 +16,7 @@ export default function CreateEventPage() {
   ) {
     await mutation.mutateAsync({
       ...values,
+      date: new Date(values.date).toISOString(),
       id: crypto.randomUUID(),
       status: 'active',
       checkin_count: 0,
@@ -25,6 +26,7 @@ export default function CreateEventPage() {
 
     router.push('/events');
   }
+
   return (
     <main className="mx-auto max-w-2xl p-6">
       <div className="mb-8">

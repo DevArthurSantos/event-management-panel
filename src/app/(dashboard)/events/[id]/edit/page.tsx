@@ -27,7 +27,10 @@ export default function EditEventPage() {
   async function handleSubmit(values: CreateEventInput) {
     await mutation.mutateAsync({
       id: eventId,
-      payload: values,
+      payload: {
+        ...values,
+        date: new Date(values.date).toISOString(),
+      },
     });
 
     router.push('/events');
