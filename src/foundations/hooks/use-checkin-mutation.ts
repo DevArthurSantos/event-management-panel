@@ -1,13 +1,13 @@
 'use client';
 
-import { canCheckin } from '@/src/infra/helpers/business/can-checkin';
-import { calculateEntryRate } from '@/src/infra/helpers/calculate-entry-rate';
-import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
-import { Event } from '@/src/infra/schemas/event/event.schema';
-import { Participant } from '@/src/infra/schemas/participant/participant.schema';
-import { createCheckin } from '@/src/infra/services/checkin.service';
-import { updateEvent } from '@/src/infra/services/event.service';
-import { updateParticipant } from '@/src/infra/services/participant.service';
+import { canCheckin } from '@infra/helpers/business/can-checkin';
+import { calculateEntryRate } from '@infra/helpers/calculate-entry-rate';
+import { getErrorMessage } from '@infra/helpers/getErrorMessage';
+import { Event } from '@infra/schemas/event/event.schema';
+import { Participant } from '@infra/schemas/participant/participant.schema';
+import { createCheckin } from '@infra/services/checkin.service';
+import { updateEvent } from '@infra/services/event.service';
+import { updateParticipant } from '@infra/services/participant.service';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';

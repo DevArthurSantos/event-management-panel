@@ -74,12 +74,10 @@ O **AuraEvent** é uma aplicação de gerenciamento de eventos com foco em escal
 
 ## 🔮 Melhorias Futuras
 
-- Integração com API real (json-server ou backend próprio)
 - Autenticação de usuários
 - Exportação de relatórios (PDF/Excel)
 - PWA (modo offline)
-- Testes E2E com Playwright
-- Internacionalização (i18n)
+- Testes
 
 ---
 

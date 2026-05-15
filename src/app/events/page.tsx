@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { EventCard } from '@/src/components/patterns/events/EventCard';
-import { Button } from '@/src/components/ui/Button';
-import { Input } from '@/src/components/ui/forms/Inputs';
-import { useEvents } from '@/src/foundations/hooks/use-events';
-import EventEmptyState from '@/src/components/feedback/Emptys/EventEmptyState';
-import LoadingEventState from '@/src/components/feedback/loadings/LoadingEventState';
-import EventErrorState from '@/src/components/feedback/erros/EventErrorState';
+import { EventCard } from '@components/patterns/events/EventCard';
+import { Button } from '@components/ui/Button';
+import { Input } from '@components/ui/forms/Inputs';
+import { useEvents } from '@foundations/hooks/use-events';
+import EventEmptyState from '@components/feedback/Emptys/EventEmptyState';
+import LoadingEventState from '@components/feedback/loadings/LoadingEventState';
+import EventErrorState from '@components/feedback/erros/EventErrorState';
 import Link from 'next/link';
 
 type StatusFilter = 'all' | 'active' | 'closed' | 'cancelled';

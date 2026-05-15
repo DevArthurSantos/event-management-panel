@@ -1,4 +1,4 @@
-import { getCheckinsByEvent } from '@/src/infra/services/checkin.service';
+import { getCheckinsByEvent } from '@infra/services/checkin.service';
 import { useQuery } from '@tanstack/react-query';
 
 

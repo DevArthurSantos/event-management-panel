@@ -1,7 +1,7 @@
 'use client';
 
-import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
-import { updateParticipant } from '@/src/infra/services/participant.service';
+import { getErrorMessage } from '@infra/helpers/getErrorMessage';
+import { updateParticipant } from '@infra/services/participant.service';
 import { useMutation } from '@tanstack/react-query';
 import { useQueryClient } from '@tanstack/react-query';
 

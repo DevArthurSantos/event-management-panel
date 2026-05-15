@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "@/src/components/ui/Button";
+import { Button } from "@components/ui/Button";
 import { memo } from "react";
 
 function EventErrorState() {

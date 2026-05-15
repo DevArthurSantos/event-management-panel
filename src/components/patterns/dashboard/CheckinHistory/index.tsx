@@ -1,4 +1,4 @@
-import { Checkin } from "@/src/infra/schemas/chekin/checkin.schema";
+import { Checkin } from "@infra/schemas/chekin/checkin.schema";
 
 interface Props {
   checkins: Checkin[];

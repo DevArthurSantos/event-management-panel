@@ -1,4 +1,4 @@
-import { Event } from '@/src/infra/schemas/event/event.schema';
+import { Event } from '@infra/schemas/event/event.schema';
 import Link from 'next/link';
 
 interface Props {

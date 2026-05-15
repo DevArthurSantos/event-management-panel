@@ -5,8 +5,8 @@ import { useQueryClient } from '@tanstack/react-query';
 
 import { toast } from 'sonner';
 
-import { createParticipant } from '@/src/infra/services/participant.service';
-import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
+import { createParticipant } from '@infra/services/participant.service';
+import { getErrorMessage } from '@infra/helpers/getErrorMessage';
 
 export function useCreateParticipant() {
   const queryClient = useQueryClient();

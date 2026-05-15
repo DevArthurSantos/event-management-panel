@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Button } from "@/src/components/ui/Button";
+import { Button } from "@components/ui/Button";
 
 function EventEmptyState() {
   return (

@@ -1,5 +1,5 @@
-import { api } from '@/src/infra/services/api.service';
-import { eventSchema } from '@/src/infra/schemas/event/event.schema';
+import { api } from '@infra/services/api.service';
+import { eventSchema } from '@infra/schemas/event/event.schema';
 
 export async function getEvents() {
   const response = await api.get('/events');

@@ -1,10 +1,10 @@
 'use client';
 
-import LoadingEventState from '@/src/components/feedback/loadings/LoadingEventState';
-import { EventForm } from '@/src/components/common/forms/EventForm';
-import { useEvent } from '@/src/foundations/hooks/use-event';
-import { useUpdateEvent } from '@/src/foundations/hooks/use-update-event';
-import { CreateEventInput } from '@/src/infra/schemas/event/create-event.schema';
+import LoadingEventState from '@components/feedback/loadings/LoadingEventState';
+import { EventForm } from '@components/common/forms/EventForm';
+import { useEvent } from '@foundations/hooks/use-event';
+import { useUpdateEvent } from '@foundations/hooks/use-update-event';
+import { CreateEventInput } from '@infra/schemas/event/create-event.schema';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 

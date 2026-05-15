@@ -1,4 +1,4 @@
-import LoadingEventState from '@/src/components/feedback/loadings/LoadingEventState';
+import LoadingEventState from '@components/feedback/loadings/LoadingEventState';
 import { render, screen } from '@testing-library/react';
 
 import { describe, expect, it } from 'vitest';
@@ -10,7 +10,7 @@ describe('LoadingState', () => {
 
     expect(
       screen.getByText(
-        'Carregando dados...',
+        'Carregando evento...',
       ),
     ).toBeInTheDocument();
   });

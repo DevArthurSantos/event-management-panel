@@ -1,6 +1,6 @@
 'use client'
 
-import LPHeader from '@/src/components/patterns/ladingpage/header'
+import LPHeader from '@components/patterns/ladingpage/header'
 import { useState } from 'react'
 
 export default function LandingPage() {

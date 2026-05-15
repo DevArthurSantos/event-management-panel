@@ -1,7 +1,7 @@
 'use client';
 
 import { PropsWithChildren, useState } from 'react';
-import { Sidebar } from '@/src/components/patterns/sidebar';
+import { Sidebar } from '@components/patterns/sidebar';
 
 export function DashboardLayout({ children }: PropsWithChildren) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);

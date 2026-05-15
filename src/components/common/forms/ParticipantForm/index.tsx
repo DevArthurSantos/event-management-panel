@@ -2,9 +2,9 @@
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Input } from '@/src/components/ui/forms/Inputs';
-import { Button } from '@/src/components/ui/Button';
-import { CreateParticipantInput, createParticipantSchema } from '@/src/infra/schemas/participant/create-participant.schema';
+import { Input } from '@components/ui/forms/Inputs';
+import { Button } from '@components/ui/Button';
+import { CreateParticipantInput, createParticipantSchema } from '@infra/schemas/participant/create-participant.schema';
 
 interface Props {
   defaultValues?: Partial<CreateParticipantInput>;

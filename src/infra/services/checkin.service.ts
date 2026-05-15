@@ -1,5 +1,5 @@
-import { api } from '@/src/infra/services/api.service';
-import { checkinSchema } from '@/src/infra/schemas/chekin/checkin.schema';
+import { api } from '@infra/services/api.service';
+import { checkinSchema } from '@infra/schemas/chekin/checkin.schema';
 
 
 export async function getCheckinsByEvent(

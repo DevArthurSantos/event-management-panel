@@ -1,5 +1,5 @@
 // components/ui/inputs/Input.tsx
-import { cn } from "@/src/infra/helpers/cn";
+import { cn } from "@infra/helpers/cn";
 import * as React from "react";
 
 const Input = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(

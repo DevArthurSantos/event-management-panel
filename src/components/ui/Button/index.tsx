@@ -1,5 +1,5 @@
 // components/ui/Button.tsx
-import { cn } from "@/src/infra/helpers/cn";
+import { cn } from "@infra/helpers/cn";
 import * as React from "react";
 
 const Button = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(

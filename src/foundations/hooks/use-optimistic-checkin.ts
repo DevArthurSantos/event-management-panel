@@ -1,9 +1,9 @@
 'use client';
 
-import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
-import { Event } from '@/src/infra/schemas/event/event.schema';
-import { Participant } from '@/src/infra/schemas/participant/participant.schema';
-import { createCheckin } from '@/src/infra/services/checkin.service';
+import { getErrorMessage } from '@infra/helpers/getErrorMessage';
+import { Event } from '@infra/schemas/event/event.schema';
+import { Participant } from '@infra/schemas/participant/participant.schema';
+import { createCheckin } from '@infra/services/checkin.service';
 import { useMutation } from '@tanstack/react-query';
 
 import { useQueryClient } from '@tanstack/react-query';

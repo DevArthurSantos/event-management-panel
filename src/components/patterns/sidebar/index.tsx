@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/src/infra/helpers/cn';
+import { cn } from '@infra/helpers/cn';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 

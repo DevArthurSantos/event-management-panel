@@ -1,4 +1,4 @@
-import { Participant } from "@/src/infra/schemas/participant/participant.schema";
+import { Participant } from "@infra/schemas/participant/participant.schema";
 
 export function canExit(
   participant: Participant,

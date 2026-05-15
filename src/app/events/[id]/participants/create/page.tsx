@@ -1,9 +1,9 @@
 'use client';
 
 import { useRouter, useParams } from 'next/navigation';
-import { useCreateParticipant } from '@/src/foundations/hooks/use-create-participant';
-import { CreateParticipantInput } from '@/src/infra/schemas/participant/create-participant.schema';
-import { ParticipantForm } from '@/src/components/common/forms/ParticipantForm';
+import { useCreateParticipant } from '@foundations/hooks/use-create-participant';
+import { CreateParticipantInput } from '@infra/schemas/participant/create-participant.schema';
+import { ParticipantForm } from '@components/common/forms/ParticipantForm';
 import Link from 'next/link';
 
 export default function CreateParticipantPage() {

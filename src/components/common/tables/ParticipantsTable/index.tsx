@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import { Participant } from "@/src/infra/schemas/participant/participant.schema";
-import { Button } from "@/src/components/ui/Button";
+import { Participant } from "@infra/schemas/participant/participant.schema";
+import { Button } from "@components/ui/Button";
 
 interface Props {
   participants: Participant[];

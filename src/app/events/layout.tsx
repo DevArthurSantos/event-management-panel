@@ -1,4 +1,4 @@
-import { DashboardLayout } from '@/src/components/patterns/dashboard';
+import { DashboardLayout } from '@components/patterns/dashboard';
 import { PropsWithChildren } from 'react';
 
 

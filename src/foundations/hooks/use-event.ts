@@ -1,4 +1,4 @@
-import { getEventById } from '@/src/infra/services/event.service';
+import { getEventById } from '@infra/services/event.service';
 import { useQuery } from '@tanstack/react-query';
 
 export function useEvent(id: string) {

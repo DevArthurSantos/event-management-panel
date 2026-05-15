@@ -1,4 +1,4 @@
-import DarkModeToggle from "@/src/components/ui/Button/DarkModeToggle";
+import DarkModeToggle from "@components/ui/Button/DarkModeToggle";
 
 export default function LPLayout({
   children,

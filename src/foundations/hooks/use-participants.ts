@@ -1,4 +1,4 @@
-import { getParticipantsByEvent } from '@/src/infra/services/participant.service';
+import { getParticipantsByEvent } from '@infra/services/participant.service';
 import { useQuery } from '@tanstack/react-query';
 
 

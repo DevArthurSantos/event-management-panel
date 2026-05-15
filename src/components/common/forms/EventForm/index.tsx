@@ -2,9 +2,9 @@
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { createEventSchema, CreateEventInput } from '@/src/infra/schemas/event/create-event.schema';
-import { Input } from '@/src/components/ui/forms/Inputs';
-import { Button } from '@/src/components/ui/Button';
+import { createEventSchema, CreateEventInput } from '@infra/schemas/event/create-event.schema';
+import { Input } from '@components/ui/forms/Inputs';
+import { Button } from '@components/ui/Button';
 
 interface Props {
   defaultValues?: Partial<CreateEventInput>;

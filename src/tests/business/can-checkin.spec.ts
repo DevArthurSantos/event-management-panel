@@ -1,7 +1,7 @@
-import { canCheckin } from '@/src/infra/helpers/business/can-checkin';
-import { Event } from '@/src/infra/schemas/event/event.schema';
+import { canCheckin } from '@infra/helpers/business/can-checkin';
+import { Event } from '@infra/schemas/event/event.schema';
 
-import { Participant } from '@/src/infra/schemas/participant/participant.schema';
+import { Participant } from '@infra/schemas/participant/participant.schema';
 
 import {
   describe,

@@ -1,8 +1,8 @@
 'use client';
 
-import { EventForm } from '@/src/components/common/forms/EventForm';
-import { useCreateEvent } from '@/src/foundations/hooks/use-create-event';
-import { CreateEventInput } from '@/src/infra/schemas/event/create-event.schema';
+import { EventForm } from '@components/common/forms/EventForm';
+import { useCreateEvent } from '@foundations/hooks/use-create-event';
+import { CreateEventInput } from '@infra/schemas/event/create-event.schema';
 import { useRouter } from 'next/navigation';
 
 export default function CreateEventPage() {

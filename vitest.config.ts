@@ -20,10 +20,11 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': path.resolve(
-        __dirname,
-        './src',
-      ),
+      "@": path.resolve(__dirname, "./src"),
+      "@infra": path.resolve(__dirname, "./src/infra"),
+      "@components": path.resolve(__dirname, "./src/components"),
+      "@foundations": path.resolve(__dirname, "./src/foundations"),
+      "@tests": path.resolve(__dirname, "./src/tests"),
     },
   },
 });

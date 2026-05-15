@@ -1,5 +1,5 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
-import { navigation } from "@/src/foundations/constants/lp-navigation";
+import { navigation } from "@foundations/constants/lp-navigation";
 import Link from "next/link";
 
 interface LPHeaderProps {

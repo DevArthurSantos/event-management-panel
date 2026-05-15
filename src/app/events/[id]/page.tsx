@@ -1,16 +1,16 @@
 'use client';
 
-import { ParticipantsTable } from '@/src/components/common/tables/ParticipantsTable';
-import EventErrorState from '@/src/components/feedback/erros/EventErrorState';
-import LoadingEventState from '@/src/components/feedback/loadings/LoadingEventState';
-import { CheckinChart } from '@/src/components/patterns/dashboard/CheckinChart';
-import { CheckinHistory } from '@/src/components/patterns/dashboard/CheckinHistory';
-import { MetricCard } from '@/src/components/patterns/dashboard/MetricCard';
-import { Button } from '@/src/components/ui/Button';
-import { useCheckins } from '@/src/foundations/hooks/use-checkin';
-import { useCheckinMutation } from '@/src/foundations/hooks/use-checkin-mutation';
-import { useEvent } from '@/src/foundations/hooks/use-event';
-import { useParticipants } from '@/src/foundations/hooks/use-participants';
+import { ParticipantsTable } from '@components/common/tables/ParticipantsTable';
+import EventErrorState from '@components/feedback/erros/EventErrorState';
+import LoadingEventState from '@components/feedback/loadings/LoadingEventState';
+import { CheckinChart } from '@components/patterns/dashboard/CheckinChart';
+import { CheckinHistory } from '@components/patterns/dashboard/CheckinHistory';
+import { MetricCard } from '@components/patterns/dashboard/MetricCard';
+import { Button } from '@components/ui/Button';
+import { useCheckins } from '@foundations/hooks/use-checkin';
+import { useCheckinMutation } from '@foundations/hooks/use-checkin-mutation';
+import { useEvent } from '@foundations/hooks/use-event';
+import { useParticipants } from '@foundations/hooks/use-participants';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
