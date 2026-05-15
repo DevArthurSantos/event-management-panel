@@ -34,7 +34,15 @@ export function EventForm({
       createEventSchema
     ),
 
-    defaultValues,
+    defaultValues: {
+      ...defaultValues,
+
+      date: defaultValues?.date
+        ? new Date(defaultValues.date)
+          .toISOString()
+          .split('T')[0]
+        : '',
+    },
   });
 
   return (

@@ -33,7 +33,10 @@ export function ParticipantForm({
       createParticipantSchema
     ),
 
-    defaultValues,
+    defaultValues: {
+      type: 'normal',
+      ...defaultValues,
+    },
   });
 
   return (
@@ -43,7 +46,7 @@ export function ParticipantForm({
     >
       <div>
         <Input
-          placeholder="name"
+          placeholder="Nome do participante"
           {...register('name')}
         />
 
