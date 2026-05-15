@@ -3,9 +3,9 @@
 import { useRouter } from 'next/navigation';
 import { useParams } from 'next/navigation';
 
-import { Participant } from '@/src/infra/schemas/participant/participant.schema';
 import { useCreateParticipant } from '@/src/foundations/hooks/use-create-participant';
-import { ParticipantForm } from '@/src/components/forms/ParticipantForm';
+import { CreateParticipantInput } from '@/src/infra/schemas/participant/create-participant.schema';
+import { ParticipantForm } from '@/src/components/common/forms/ParticipantForm';
 
 export default function CreateParticipantPage() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function CreateParticipantPage() {
   const mutation = useCreateParticipant();
 
   async function handleSubmit(
-    values: Participant,
+    values: CreateParticipantInput,
   ) {
     await mutation.mutateAsync({
       ...values,

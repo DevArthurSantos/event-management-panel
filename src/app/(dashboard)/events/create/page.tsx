@@ -1,6 +1,6 @@
 'use client';
 
-import { EventForm } from '@/src/components/forms/EventForm';
+import { EventForm } from '@/src/components/common/forms/EventForm';
 import { useCreateEvent } from '@/src/foundations/hooks/use-create-event';
 import { CreateEventInput } from '@/src/infra/schemas/event/create-event.schema';
 import { useRouter } from 'next/navigation';

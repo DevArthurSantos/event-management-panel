@@ -5,6 +5,9 @@ export function calculateEntryRate(
   if (!expected) return 0;
 
   return Number(
-    ((checkins / expected) * 100).toFixed(2),
+    (
+      (checkins / expected) *
+      100
+    ).toFixed(2),
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import LoadingEventState from '@/src/components/feedback/loadings/LoadingEventState';
-import { EventForm } from '@/src/components/forms/EventForm';
+import { EventForm } from '@/src/components/common/forms/EventForm';
 import { useEvent } from '@/src/foundations/hooks/use-event';
 import { useUpdateEvent } from '@/src/foundations/hooks/use-update-event';
 import { CreateEventInput } from '@/src/infra/schemas/event/create-event.schema';
