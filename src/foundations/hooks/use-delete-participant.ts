@@ -1,5 +1,6 @@
 'use client';
 
+import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
 import { deleteParticipant } from '@/src/infra/services/participant.service';
 import { useMutation } from '@tanstack/react-query';
 import { useQueryClient } from '@tanstack/react-query';
@@ -23,10 +24,9 @@ export function useDeleteParticipant() {
       });
     },
 
-    onError: () => {
-      toast.error(
-        'Erro ao remover participante',
-      );
+
+    onError: (error: unknown) => {
+      toast.error(getErrorMessage(error, 'Erro ao remover participante'));
     },
   });
 }

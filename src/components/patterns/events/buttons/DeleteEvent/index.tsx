@@ -27,11 +27,8 @@ export function DeleteEventButton({
     router.push('/events');
   }
 
-  return (
-    <Button
-      className="bg-red-500"
-      onClick={handleDelete}
-    >
+return (
+    <Button className="bg-cancelled hover:bg-red-600 text-aura-text" onClick={handleDelete}>
       Remover Evento
     </Button>
   );

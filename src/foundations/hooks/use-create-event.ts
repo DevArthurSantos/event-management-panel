@@ -1,5 +1,6 @@
 'use client';
 
+import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
 import { createEvent } from '@/src/infra/services/event.service';
 import { useMutation } from '@tanstack/react-query';
 import { useQueryClient } from '@tanstack/react-query';
@@ -23,10 +24,8 @@ export function useCreateEvent() {
       });
     },
 
-    onError: () => {
-      toast.error(
-        'Erro ao criar evento',
-      );
+    onError: (error: unknown) => {
+      toast.error(getErrorMessage(error, 'Erro ao criar evento'));
     },
   });
 }

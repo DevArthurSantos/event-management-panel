@@ -4,10 +4,7 @@ import { Providers } from './providers';
 import "./global.css";
 import "@tailwindplus/elements";
 
-
-
 const interFont = Inter({
-  variable: "--font-Inter-sans",
   subsets: ["latin"],
 });
 
@@ -16,15 +13,11 @@ export const metadata: Metadata = {
   description: 'Gestão de eventos e participantes',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="pt-BR">
-      <body
-      className={`${interFont.variable} h-full antialiased`}>
+    <html lang="pt-BR" className="dark">
+      <body className={`h-full antialiased ${interFont.className}`}>
         <Providers>{children}</Providers>
       </body>
     </html>

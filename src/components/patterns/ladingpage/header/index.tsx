@@ -1,5 +1,6 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { navigation } from "@/src/foundations/constants/lp-navigation";
+import Link from "next/link";
 
 interface LPHeaderProps {
   mobileMenuOpen: boolean;
@@ -19,8 +20,8 @@ export default function LPHeader({
             <div className="h-6 w-6 rounded-full bg-white flex items-center justify-center transition-transform group-hover:scale-105">
               <div className="h-2 w-2 rounded-full bg-gray-950" />
             </div>
-            <span className="text-xl font-medium tracking-tight text-white">
-              AuraEvent
+            <span className="text-xl font-medium tracking-tight text-aura-text">
+              AURAEVENT
             </span>
           </a>
         </div>
@@ -30,7 +31,7 @@ export default function LPHeader({
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400 hover:text-white"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-aura-text-secondary hover:text-aura-text"
           >
             <span className="sr-only">Abrir menu</span>
             ☰
@@ -43,7 +44,7 @@ export default function LPHeader({
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-gray-400 hover:text-white"
+              className="text-sm font-medium hover:text-aura-text text-aura-text-secondary"
             >
               {item.name}
             </a>
@@ -51,12 +52,12 @@ export default function LPHeader({
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
+          <Link
             href="/events"
-            className="rounded-full bg-white px-5 py-2 text-sm font-medium text-gray-950"
+            className="rounded-md bg-white px-5 py-2 text-sm font-medium text-gray-950"
           >
             Começar agora
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -70,13 +71,13 @@ export default function LPHeader({
               <div className="h-6 w-6 rounded-full bg-white flex items-center justify-center">
                 <div className="h-2 w-2 rounded-full bg-gray-950" />
               </div>
-              <span className="text-xl font-medium text-white">AuraEvent</span>
+              <span className="text-xl font-medium text-aura-text">AURAEVENT</span>
             </a>
 
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-gray-400 hover:text-white"
+              className="text-aura-text-secondary hover:text-aura-text"
             >
               ✕
             </button>
@@ -87,18 +88,18 @@ export default function LPHeader({
               <a
                 key={item.name}
                 href={item.href}
-                className="block rounded-lg px-3 py-2 text-base text-gray-300 hover:bg-white/5 hover:text-white"
+                className="block rounded-md px-3 py-2 text-base text-gray-300 hover:bg-white/5 hover:text-aura-text"
               >
                 {item.name}
               </a>
             ))}
 
-            <a
+            <Link
               href="/events"
-              className="mt-4 block rounded-full bg-white px-5 py-3 text-center text-gray-950"
+              className="mt-4 block rounded-md bg-white px-5 py-3 text-center text-gray-950"
             >
               Começar agora
-            </a>
+            </Link>
           </div>
         </DialogPanel>
       </Dialog>

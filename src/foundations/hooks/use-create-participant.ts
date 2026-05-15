@@ -6,6 +6,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
 import { createParticipant } from '@/src/infra/services/participant.service';
+import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
 
 export function useCreateParticipant() {
   const queryClient = useQueryClient();
@@ -23,10 +24,9 @@ export function useCreateParticipant() {
       });
     },
 
-    onError: () => {
-      toast.error(
-        'Erro ao criar participante',
-      );
+
+    onError: (error: unknown) => {
+      toast.error(getErrorMessage(error, 'Erro ao criar participante',));
     },
   });
 }

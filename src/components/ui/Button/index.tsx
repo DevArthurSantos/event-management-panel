@@ -1,28 +1,21 @@
-// components/ui/button.tsx
+// components/ui/Button.tsx
+import { cn } from "@/src/infra/helpers/cn";
+import * as React from "react";
 
-import { cn } from "@/src/infra/helpers/cn"
-import * as React from "react"
-
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
-
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
   ({ className, ...props }, ref) => {
     return (
       <button
+        ref={ref}
         className={cn(
-          "inline-flex items-center justify-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white",
-          "hover:opacity-90",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-          "disabled:pointer-events-none disabled:opacity-50",
+          "btn-primary inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold transition-all active:scale-95",
           className
         )}
-        ref={ref}
         {...props}
       />
-    )
+    );
   }
-)
+);
 
-Button.displayName = "Button"
-
-export { Button }
+Button.displayName = "Button";
+export { Button };

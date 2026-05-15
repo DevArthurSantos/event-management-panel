@@ -1,5 +1,6 @@
 'use client';
 
+import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
 import { deleteEvent } from '@/src/infra/services/event.service';
 import { useMutation } from '@tanstack/react-query';
 import { useQueryClient } from '@tanstack/react-query';
@@ -22,10 +23,8 @@ export function useDeleteEvent() {
       });
     },
 
-    onError: () => {
-      toast.error(
-        'Erro ao remover evento',
-      );
+    onError: (error: unknown) => {
+      toast.error(getErrorMessage(error, 'Erro ao remover evento'));
     },
   });
 }

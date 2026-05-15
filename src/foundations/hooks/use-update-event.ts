@@ -1,5 +1,6 @@
 'use client';
 
+import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
 import { updateEvent } from '@/src/infra/services/event.service';
 import { useMutation } from '@tanstack/react-query';
 import { useQueryClient } from '@tanstack/react-query';
@@ -34,10 +35,8 @@ export function useUpdateEvent() {
       });
     },
 
-    onError: () => {
-      toast.error(
-        'Erro ao atualizar evento',
-      );
+    onError: (error: unknown) => {
+      toast.error(getErrorMessage(error, 'Erro ao atualizar evento'));
     },
   });
 }

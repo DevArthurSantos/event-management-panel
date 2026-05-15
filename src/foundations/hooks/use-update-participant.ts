@@ -1,5 +1,6 @@
 'use client';
 
+import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
 import { updateParticipant } from '@/src/infra/services/participant.service';
 import { useMutation } from '@tanstack/react-query';
 import { useQueryClient } from '@tanstack/react-query';
@@ -30,10 +31,9 @@ export function useUpdateParticipant() {
       });
     },
 
-    onError: () => {
-      toast.error(
-        'Erro ao atualizar participante',
-      );
+
+    onError: (error: unknown) => {
+      toast.error(getErrorMessage(error, 'Erro ao atualizar participante'));
     },
   });
 }

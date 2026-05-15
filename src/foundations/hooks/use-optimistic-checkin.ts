@@ -1,5 +1,6 @@
 'use client';
 
+import { getErrorMessage } from '@/src/infra/helpers/getErrorMessage';
 import { Event } from '@/src/infra/schemas/event/event.schema';
 import { Participant } from '@/src/infra/schemas/participant/participant.schema';
 import { createCheckin } from '@/src/infra/services/checkin.service';
@@ -69,13 +70,13 @@ export function useOptimisticCheckin() {
           old.map((item) =>
             item.id === participant.id
               ? {
-                  ...item,
+                ...item,
 
-                  status: 'inside',
+                status: 'inside',
 
-                  checkin_count:
-                    item.checkin_count + 1,
-                }
+                checkin_count:
+                  item.checkin_count + 1,
+              }
               : item,
           ),
       );
@@ -99,10 +100,10 @@ export function useOptimisticCheckin() {
         context?.previousParticipants,
       );
 
-      toast.error(
-        'Erro ao realizar check-in',
-      );
+      toast.error(getErrorMessage(undefined, 'Erro ao realizar check-in'));
+
     },
+
 
     onSuccess: () => {
       toast.success(

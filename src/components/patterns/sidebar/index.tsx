@@ -4,13 +4,13 @@ import { cn } from '@/src/infra/helpers/cn';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const items = [
+const mainItems = [
   { label: 'Eventos', href: '/events' },
   { label: 'Analytics', href: '/analytics' },
   { label: 'Relatórios', href: '/reports' },
 ];
 
-const secondaryItems = [
+const accountItems = [
   { label: 'Perfil', href: '/profile' },
   { label: 'Configurações', href: '/settings' },
   { label: 'Sair', href: '/' },
@@ -21,17 +21,15 @@ type SidebarProps = {
   onMobileClose?: () => void;
 };
 
-export function Sidebar({
-  isMobileOpen = false,
-  onMobileClose,
-}: SidebarProps) {
+export function Sidebar({ isMobileOpen = false, onMobileClose }: SidebarProps) {
   const pathname = usePathname();
 
   return (
     <>
+      {/* Overlay mobile */}
       {isMobileOpen && onMobileClose && (
         <div
-          className="fixed inset-0 z-999 bg-black/70 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md lg:hidden"
           onClick={onMobileClose}
           aria-hidden="true"
         />
@@ -39,77 +37,63 @@ export function Sidebar({
 
       <aside
         className={cn(
-          'fixed inset-y-0 left-0 z-1000 w-72 border-r border-white/5 bg-gray-950 p-6 flex flex-col transition-transform duration-300 ease-in-out lg:static lg:z-auto lg:translate-x-0',
+          'fixed h-screen inset-y-0 left-0 z-100 w-72 border-r border-aura-border bg-aura-card p-6 flex flex-col transition-transform duration-300 ease-in-out  lg:translate-x-0',
           isMobileOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
+        {/* Botão fechar (mobile) */}
         {onMobileClose && (
           <button
             onClick={onMobileClose}
-            className="absolute right-6 top-6 flex h-9 w-9 items-center justify-center rounded-md bg-white/10 text-white hover:bg-white/20 transition-colors lg:hidden"
+            className="absolute right-6 top-6 lg:hidden flex h-9 w-9 items-center justify-center rounded-md bg-aura-border text-aura-text hover:bg-aura-text-secondary/20 transition-colors"
             aria-label="Fechar menu"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={3}
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6h12v12"
-              />
-            </svg>
+            ✕
           </button>
         )}
 
-        <div className="mb-10">
+        {/* Logo */}
+        <div className="mb-12">
           <Link href="/" className="flex items-center gap-x-3 group">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white transition-transform group-hover:scale-110">
-              <div className="h-2.5 w-2.5 rounded-full bg-gray-950" />
+            <div className="h-6 w-6 rounded-full bg-white flex items-center justify-center transition-transform group-hover:scale-105">
+              <div className="h-2 w-2 rounded-full bg-gray-950" />
             </div>
-
             <div>
-              <h1 className="text-xl font-medium tracking-tight text-white">
-                Aura
+              <h1 className="text-2xl font-semibold tracking-tighter text-aura-text">
+                AURAEVENT
               </h1>
-              <p className="mt-1 text-xs font-light text-gray-500">
-                Sistema de Gestão
+              <p className="text-xs font-light text-aura-text-secondary">
+                Sistema de gestão de eventos
               </p>
             </div>
           </Link>
         </div>
 
-        <div className="space-y-8 flex-1">
+        {/* Menu Principal */}
+        <div className="flex-1 space-y-8">
           <section>
-            <p className="mb-3 px-3 text-[11px] font-medium uppercase tracking-[0.2em] text-gray-500">
+            <p className="mb-3 px-3 text-xs font-semibold uppercase tracking-widest text-aura-text-secondary">
               Principal
             </p>
-
-            <nav className="space-y-1.5">
-              {items.map((item) => {
-                const isActive =
-                  pathname === item.href || pathname.startsWith(item.href + '/');
-
+            <nav className="space-y-1">
+              {mainItems.map((item) => {
+                const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={isMobileOpen && onMobileClose ? onMobileClose : undefined}
                     className={cn(
-                      'group flex h-11 items-center rounded-md px-4 text-sm font-medium transition-all duration-200',
+                      'group flex h-11 items-center gap-3 rounded-md px-4 text-sm font-medium transition-all',
                       isActive
-                        ? 'bg-white text-gray-950 shadow-lg shadow-white/5'
-                        : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                        ? 'bg-white text-aura-text shadow-lg'
+                        : 'text-aura-text-secondary hover:bg-aura-border/50 hover:text-aura-text'
                     )}
                   >
                     <span
                       className={cn(
-                        'mr-3 h-2 w-2 rounded-full transition-all',
-                        isActive ? 'bg-gray-950' : 'bg-gray-600 group-hover:bg-white'
+                        'h-2 w-2 rounded-full transition-all',
+                        isActive ? 'bg-aura-bg' : 'bg-aura-border group-hover:bg-aura-text'
                       )}
                     />
                     {item.label}
@@ -119,32 +103,30 @@ export function Sidebar({
             </nav>
           </section>
 
+          {/* Menu Conta */}
           <section>
-            <p className="mb-3 px-3 text-[11px] font-medium uppercase tracking-[0.2em] text-gray-500">
+            <p className="mb-3 px-3 text-xs font-semibold uppercase tracking-widest text-aura-text-secondary">
               Conta
             </p>
-
-            <nav className="space-y-1.5">
-              {secondaryItems.map((item) => {
-                const isActive =
-                  pathname === item.href || pathname.startsWith(item.href + '/');
-
+            <nav className="space-y-1">
+              {accountItems.map((item) => {
+                const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={isMobileOpen && onMobileClose ? onMobileClose : undefined}
                     className={cn(
-                      'group flex h-11 items-center rounded-md px-4 text-sm font-medium transition-all duration-200',
+                      'group flex h-11 items-center gap-3 rounded-md px-4 text-sm font-medium transition-all',
                       isActive
-                        ? 'bg-white text-gray-950 shadow-lg shadow-white/5'
-                        : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                        ? 'bg-white text-aura-text shadow-lg'
+                        : 'text-aura-text-secondary hover:bg-aura-border/50 hover:text-aura-text'
                     )}
                   >
                     <span
                       className={cn(
-                        'mr-3 h-2 w-2 rounded-full transition-all',
-                        isActive ? 'bg-gray-950' : 'bg-gray-600 group-hover:bg-white'
+                        'h-2 w-2 rounded-full transition-all',
+                        isActive ? 'bg-aura-bg' : 'bg-aura-border group-hover:bg-aura-text'
                       )}
                     />
                     {item.label}
@@ -155,12 +137,15 @@ export function Sidebar({
           </section>
         </div>
 
-        <div className="mt-auto pt-8">
-          <div className="mt-6 flex items-center gap-3 px-1">
-            <div className="h-10 w-10 rounded-full bg-linear-to-tr from-white/20 to-white/5 ring-1 ring-white/10" />
+        {/* Footer do usuário */}
+        <div className="mt-auto pt-8 border-t border-aura-border">
+          <div className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-aura-border/30 transition-colors">
+            <div className="h-9 w-9 rounded-full bg-gradient-to-br from-primary-500 to-blue-600 flex items-center justify-center text-aura-text font-semibold text-sm">
+              UA
+            </div>
             <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-white">Usuário Aura</p>
-              <p className="truncate text-xs text-gray-500">Plano Pro</p>
+              <p className="text-sm font-medium text-aura-text truncate">Usuário Aura</p>
+              <p className="text-xs text-aura-text-secondary">Plano Pro</p>
             </div>
           </div>
         </div>

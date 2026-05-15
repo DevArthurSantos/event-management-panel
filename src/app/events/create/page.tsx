@@ -10,10 +10,7 @@ export default function CreateEventPage() {
 
   const mutation = useCreateEvent();
 
-
-  async function handleSubmit(
-    values: CreateEventInput
-  ) {
+  async function handleSubmit(values: CreateEventInput) {
     await mutation.mutateAsync({
       ...values,
       date: new Date(values.date).toISOString(),
@@ -28,20 +25,19 @@ export default function CreateEventPage() {
   }
 
   return (
-    <main className="mx-auto max-w-2xl p-6">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold">
-          Novo Evento
-        </h1>
+    <div className="min-h-screen bg-aura-bg text-aura-text">
+      <main className="mx-auto max-w-2xl px-6 py-12 lg:py-16">
+        <div className="mb-10">
+          <h1 className="text-4xl font-semibold tracking-tighter text-aura-text">
+            Novo Evento
+          </h1>
+          <p className="mt-3 text-lg text-aura-text-secondary">
+            Crie um novo evento e comece a gerenciar sua experiência agora.
+          </p>
+        </div>
 
-        <p className="mt-2 text-gray-500">
-          Crie um novo evento.
-        </p>
-      </div>
-
-      <EventForm
-        onSubmit={handleSubmit}
-      />
-    </main>
+        <EventForm onSubmit={handleSubmit} />
+      </main>
+    </div>
   );
 }

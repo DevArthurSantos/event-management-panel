@@ -1,27 +1,19 @@
-import Link from "next/link";
-import { Button } from "@/src/components/ui/Button";
 import { memo } from "react";
+import { Button } from "@/src/components/ui/Button";
 
-function EventErrorState() {
+function EventEmptyState() {
   return (
-    <main className="flex min-h-100 items-center justify-center">
-      <div className="space-y-4 text-center">
-        <h2 className="text-2xl font-bold">
-          Evento não encontrado
-        </h2>
-
-        <p className="text-sm text-gray-500">
-          Não foi possível carregar os dados do evento.
-        </p>
-
-        <Link href="/events">
-          <Button>
-            Voltar
-          </Button>
-        </Link>
+    <div className="card text-center p-12">
+      <div className="mx-auto mb-6 h-16 w-16 rounded-md bg-aura-border/30 flex items-center justify-center text-4xl">
+        📭
       </div>
-    </main>
+      <h2 className="text-2xl font-semibold text-aura-text">Nenhum dado encontrado</h2>
+      <p className="mt-3 text-aura-text-secondary max-w-sm mx-auto">
+        Ainda não existem informações disponíveis para este evento.
+      </p>
+      <Button className="btn-primary mt-8 px-8">Criar agora</Button>
+    </div>
   );
 }
 
-export default memo(EventErrorState)
+export default memo(EventEmptyState);

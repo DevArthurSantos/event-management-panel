@@ -1,14 +1,15 @@
+import DarkModeToggle from "@/src/components/ui/Button/DarkModeToggle";
+
 export default function LPLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body
-        className={`h-full antialiased overflow-clip`}>
-        {children}
-      </body>
-    </html>
+    <div
+      className={`overflow-clip`}>
+      <DarkModeToggle />
+      {children}
+    </div>
   );
 }

@@ -1,88 +1,106 @@
 'use client';
 
-import EventEmptyState from '@/src/components/feedback/Emptys/EventEmptyState';
-import EventErrorState from '@/src/components/feedback/erros/EventErrorState';
-import LoadingEventState from '@/src/components/feedback/loadings/LoadingEventState';
+import { useState, useMemo } from 'react';
 import { EventCard } from '@/src/components/patterns/events/EventCard';
 import { Button } from '@/src/components/ui/Button';
 import { Input } from '@/src/components/ui/forms/Inputs';
 import { useEvents } from '@/src/foundations/hooks/use-events';
-import { useUIStore } from '@/src/foundations/stores/ui.store';
-import { Event } from '@/src/infra/schemas/event/event.schema';
+import EventEmptyState from '@/src/components/feedback/Emptys/EventEmptyState';
+import LoadingEventState from '@/src/components/feedback/loadings/LoadingEventState';
+import EventErrorState from '@/src/components/feedback/erros/EventErrorState';
 import Link from 'next/link';
-import { useMemo } from 'react';
+
+type StatusFilter = 'all' | 'active' | 'closed' | 'cancelled';
 
 export default function EventsPage() {
   const { data, isLoading, isError } = useEvents();
-  const { search, setSearch } = useUIStore();
+  const [search, setSearch] = useState('');
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
+  const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
 
-  const filteredEvents = useMemo(() => {
+  const filteredAndSortedEvents = useMemo(() => {
     if (!data) return [];
-    return data.filter((event: Event) =>
-      event.name.toLowerCase().includes(search.toLowerCase()),
-    );
-  }, [data, search]);
+
+    let result = [...data];
+
+    // Filtro por busca
+    if (search) {
+      result = result.filter(event =>
+        event.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    // Filtro por status
+    if (statusFilter !== 'all') {
+      result = result.filter(event => event.status === statusFilter);
+    }
+
+    // Ordenação por data
+    result.sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
+    });
+
+    return result;
+  }, [data, search, statusFilter, sortOrder]);
 
   if (isLoading) return <LoadingEventState />;
   if (isError) return <EventErrorState />;
 
   return (
-    // Fundo gray-950 para dar continuidade à Landing Page
-    <div className="min-h-screen bg-gray-950 text-white selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-aura-bg text-aura-text">
       <main className="mx-auto max-w-7xl px-6 py-12 lg:px-12">
-        
-        {/* Cabeçalho Minimalista com borda suave */}
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-white/10 pb-10">
+        {/* Header + Filtros */}
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <h1 className="text-4xl font-medium tracking-tight text-white">
-              Eventos
-            </h1>
-            <p className="mt-3 text-base text-gray-400 font-light">
-              Gerencie suas experiências e acompanhe o engajamento em tempo real.
-            </p>
+            <h1 className="text-4xl font-semibold tracking-tighter">Eventos</h1>
+            <p className="mt-2 text-aura-text-secondary">Gerencie suas experiências</p>
           </div>
 
-          <div className="flex w-full flex-col sm:flex-row gap-4 md:w-auto md:min-w-[450px]">
-            {/* Input com estilo "Glass" para combinar com a Aura */}
-            <div className="relative flex-1">
-              <Input
-                placeholder="Pesquisar..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-xl py-2.5 transition-all"
-              />
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Input
+              placeholder="Buscar evento..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full md:w-80"
+            />
 
-            <Link href="/events/create" className="shrink-0">
-              <Button className="w-full sm:w-auto rounded-full bg-white px-8 py-2.5 text-sm font-semibold text-gray-950 hover:bg-gray-200 transition-all shadow-lg shadow-white/5">
-                Criar evento
-              </Button>
-            </Link>
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value as StatusFilter)}
+              className="h-12 rounded-2xl border border-aura-border bg-aura-card px-4 text-aura-text"
+            >
+              <option value="all">Todos os status</option>
+              <option value="active">Ativo</option>
+              <option value="closed">Encerrado</option>
+              <option value="cancelled">Cancelado</option>
+            </select>
+
+            <select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value as 'newest' | 'oldest')}
+              className="h-12 rounded-2xl border border-aura-border bg-aura-card px-4 text-aura-text"
+            >
+              <option value="newest">Mais recentes</option>
+              <option value="oldest">Mais antigos</option>
+            </select>
+
+            <Button className="btn-primary whitespace-nowrap">
+              <Link href="/events/create">Criar Evento</Link>
+            </Button>
           </div>
         </div>
 
-        {/* Grid de Cards ou Empty State */}
-        {!filteredEvents.length ? (
-          <div className="mt-20">
-            <EventEmptyState />
-          </div>
+        {!filteredAndSortedEvents.length ? (
+          <EventEmptyState />
         ) : (
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredEvents.map((event: Event) => (
-              <div key={event.id} className="group transition-transform hover:scale-[1.01]">
-                <EventCard event={event} />
-              </div>
+            {filteredAndSortedEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
             ))}
           </div>
         )}
-        
-        {/* Glow sutil no fundo para manter a estética da Aura */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl"
-        >
-          <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-white/5 to-white/10 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
-        </div>
       </main>
     </div>
   );
