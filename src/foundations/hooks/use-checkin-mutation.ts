@@ -7,9 +7,8 @@ import { Participant } from '@/src/infra/schemas/participant/participant.schema'
 import { createCheckin } from '@/src/infra/services/checkin.service';
 import { updateEvent } from '@/src/infra/services/event.service';
 import { updateParticipant } from '@/src/infra/services/participant.service';
-import { useMutation } from '@tanstack/react-query';
-import { useQueryClient } from '@tanstack/react-query';
 
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
 interface Params {
@@ -21,14 +20,8 @@ export function useCheckinMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async ({
-      event,
-      participant,
-    }: Params) => {
-      const validation = canCheckin(
-        event,
-        participant,
-      );
+    mutationFn: async ({ event, participant }: Params) => {
+      const validation = canCheckin(event, participant);
 
       if (!validation.allowed) {
         throw new Error(validation.reason);
@@ -37,54 +30,44 @@ export function useCheckinMutation() {
       await createCheckin({
         event_id: event.id,
         participant_id: participant.id,
-
         timestamp: new Date().toISOString(),
-
         success: true,
-
         action: 'entry',
-
         error_reason: null,
       });
 
-      await updateParticipant(
-        participant.id,
-        {
-          status: 'inside',
-
-          checkin_count:
-            participant.checkin_count + 1,
-        },
-      );
+      await updateParticipant(participant.id, {
+        status: 'inside',
+        checkin_count: participant.checkin_count + 1,
+      });
 
       await updateEvent(event.id, {
-        checkin_count:
-          event.checkin_count + 1,
-
+        checkin_count: event.checkin_count + 1,
         entry_rate: calculateEntryRate(
           event.expected_count,
-          event.checkin_count + 1,
+          event.checkin_count + 1
         ),
       });
 
       return true;
     },
 
-    onSuccess: () => {
-      toast.success(
-        'Check-in realizado com sucesso',
-      );
+    onSuccess: (_data, variables) => {
+      const { event } = variables;
 
+      toast.success('Check-in realizado com sucesso');
+
+      // ✅ IMPORTANTÍSSIMO: invalidar com eventId
       queryClient.invalidateQueries({
-        queryKey: ['events'],
+        queryKey: ['participants', event.id],
       });
 
       queryClient.invalidateQueries({
-        queryKey: ['participants'],
+        queryKey: ['event', event.id],
       });
 
       queryClient.invalidateQueries({
-        queryKey: ['checkins'],
+        queryKey: ['checkins', event.id],
       });
     },
 

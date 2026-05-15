@@ -60,7 +60,7 @@ export function ParticipantForm({
       <div>
         <select
           {...register('type')}
-          className="h-10 w-full rounded-lg border border-zinc-300 px-3 text-sm"
+          className="h-10 w-full rounded-lg border border-gray-300 px-3 text-sm"
         >
           <option value="normal">
             Normal

@@ -10,7 +10,7 @@ function EventErrorState() {
           Evento não encontrado
         </h2>
 
-        <p className="text-sm text-zinc-500">
+        <p className="text-sm text-gray-500">
           Não foi possível carregar os dados do evento.
         </p>
 

@@ -1,617 +1,144 @@
 {
   "events": [
     {
-      "id": "EVT-001",
+      "id": "rQsLUIjJenM",
       "name": "Tech Summit 2025",
-      "date": "2025-05-15T09:00:00-03:00",
+      "date": "2025-05-16T00:00:00.000Z",
       "location": "Centro de Convenções, São Paulo – SP",
-      "status": "active",
       "description": "O maior evento de tecnologia do Brasil reúne líderes do setor para debater IA, cloud e o futuro do desenvolvimento de software.",
       "expected_count": 12,
-      "checkin_count": 1,
-      "error_count": 0,
-      "entry_rate": 8.33
-    },
-    {
-      "id": "EVT-002",
-      "name": "Design Week Rio",
-      "date": "2025-04-20T10:00:00-03:00",
-      "location": "Museu do Amanhã, Rio de Janeiro – RJ",
-      "status": "closed",
-      "description": "Semana dedicada ao design contemporâneo com workshops, palestras e exposições de designers nacionais e internacionais.",
-      "expected_count": 8,
-      "checkin_count": 6,
-      "error_count": 2,
-      "entry_rate": 0
-    },
-    {
-      "id": "EVT-003",
-      "name": "Startup Pitch Night",
-      "date": "2025-05-28T19:00:00-03:00",
-      "location": "Impact Hub, Belo Horizonte – MG",
       "status": "active",
-      "description": "Startups em estágio inicial apresentam suas soluções para uma banca de investidores e especialistas do ecossistema de inovação.",
-      "expected_count": 10,
-      "checkin_count": 9,
-      "error_count": 1,
-      "entry_rate": 0
-    },
-    {
-      "id": "EVT-004",
-      "name": "Festival de Música Indie",
-      "date": "2025-03-10T14:00:00-03:00",
-      "location": "Parque Villa-Lobos, São Paulo – SP",
-      "status": "cancelled",
-      "description": "Festival com bandas independentes brasileiras e internacionais. Evento cancelado por condições climáticas adversas.",
-      "expected_count": 15,
-      "checkin_count": 0,
+      "checkin_count": 12,
       "error_count": 0,
-      "entry_rate": 0
-    },
-    {
-      "id": "EVT-005",
-      "name": "DevConf Brasil",
-      "date": "2025-06-10T08:30:00-03:00",
-      "location": "Anhembi, São Paulo – SP",
-      "status": "active",
-      "description": "Conferência para desenvolvedores com trilhas sobre front-end, back-end, DevOps e segurança. Mais de 80 palestrantes confirmados.",
-      "expected_count": 20,
-      "checkin_count": 18,
-      "error_count": 1,
-      "entry_rate": 0
-    },
-    {
-      "name": "teste",
-      "date": "4512-03-12",
-      "location": "teste",
-      "description": "123",
-      "expected_count": 123,
-      "id": "WIBVm4-4Wuw",
-      "status": "active",
-      "checkin_count": 0,
-      "error_count": 0,
-      "entry_rate": 0
+      "entry_rate": 100
     }
   ],
   "participants": [
     {
-      "id": "EVT-001-P001",
-      "event_id": "EVT-001",
-      "name": "Ana Pereira",
-      "type": "vip",
-      "status": "inside",
-      "checkin_count": 8
-    },
-    {
-      "id": "EVT-001-P002",
-      "event_id": "EVT-001",
-      "name": "Pedro Barros",
-      "type": "vip",
-      "status": "inside",
-      "checkin_count": 3
-    },
-    {
-      "id": "EVT-001-P003",
-      "event_id": "EVT-001",
-      "name": "Henrique Ribeiro",
-      "type": "vip",
-      "status": "inside",
-      "checkin_count": 6
-    },
-    {
-      "id": "EVT-001-P004",
-      "event_id": "EVT-001",
-      "name": "Pedro Freitas",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-001-P005",
-      "event_id": "EVT-001",
-      "name": "Natalia Carvalho",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-001-P006",
-      "event_id": "EVT-001",
-      "name": "Amanda Costa",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-001-P007",
-      "event_id": "EVT-001",
-      "name": "Lucas Rocha",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-001-P008",
-      "event_id": "EVT-001",
-      "name": "Fernanda Carvalho",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-001-P009",
-      "event_id": "EVT-001",
-      "name": "Gabriel Cardoso",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-001-P010",
-      "event_id": "EVT-001",
-      "name": "Camila Martins",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-001-P011",
-      "event_id": "EVT-001",
-      "name": "Vinicius Araujo",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-001-P012",
-      "event_id": "EVT-001",
-      "name": "Fernanda Ferreira",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-002-P001",
-      "event_id": "EVT-002",
-      "name": "Amanda Barros",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 2
-    },
-    {
-      "id": "EVT-002-P002",
-      "event_id": "EVT-002",
-      "name": "Lucas Ribeiro",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 2
-    },
-    {
-      "id": "EVT-002-P003",
-      "event_id": "EVT-002",
-      "name": "Camila Rocha",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-002-P004",
-      "event_id": "EVT-002",
-      "name": "Ana Souza",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-002-P005",
-      "event_id": "EVT-002",
-      "name": "Beatriz Araujo",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-002-P006",
-      "event_id": "EVT-002",
-      "name": "Amanda Monteiro",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-002-P007",
-      "event_id": "EVT-002",
-      "name": "Rodrigo Ferreira",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-002-P008",
-      "event_id": "EVT-002",
-      "name": "Gabriel Nascimento",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-003-P001",
-      "event_id": "EVT-003",
-      "name": "Fernanda Ferreira",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 4
-    },
-    {
-      "id": "EVT-003-P002",
-      "event_id": "EVT-003",
-      "name": "Vinicius Silva",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 2
-    },
-    {
-      "id": "EVT-003-P003",
-      "event_id": "EVT-003",
-      "name": "Gabriel Araujo",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 4
-    },
-    {
-      "id": "EVT-003-P004",
-      "event_id": "EVT-003",
-      "name": "Lucas Pereira",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-003-P005",
-      "event_id": "EVT-003",
-      "name": "Thiago Ferreira",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-003-P006",
-      "event_id": "EVT-003",
-      "name": "Fernanda Costa",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-003-P007",
-      "event_id": "EVT-003",
-      "name": "Lucas Freitas",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-003-P008",
-      "event_id": "EVT-003",
-      "name": "Henrique Freitas",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-003-P009",
-      "event_id": "EVT-003",
-      "name": "Felipe Araujo",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-003-P010",
-      "event_id": "EVT-003",
-      "name": "Fernanda Souza",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P001",
-      "event_id": "EVT-004",
-      "name": "Camila Souza",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P002",
-      "event_id": "EVT-004",
-      "name": "Ana Costa",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P003",
-      "event_id": "EVT-004",
-      "name": "Rafael Santos",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P004",
-      "event_id": "EVT-004",
-      "name": "Henrique Freitas",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P005",
-      "event_id": "EVT-004",
-      "name": "Felipe Gomes",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P006",
-      "event_id": "EVT-004",
-      "name": "Lucas Costa",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P007",
-      "event_id": "EVT-004",
-      "name": "Mariana Ferreira",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P008",
-      "event_id": "EVT-004",
-      "name": "Thiago Oliveira",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P009",
-      "event_id": "EVT-004",
-      "name": "Carlos Souza",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P010",
-      "event_id": "EVT-004",
-      "name": "Rafael Pereira",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P011",
-      "event_id": "EVT-004",
-      "name": "Rafael Carvalho",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P012",
-      "event_id": "EVT-004",
-      "name": "Mariana Cardoso",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P013",
-      "event_id": "EVT-004",
-      "name": "Vinicius Silva",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P014",
-      "event_id": "EVT-004",
-      "name": "Mariana Monteiro",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-004-P015",
-      "event_id": "EVT-004",
-      "name": "Vinicius Araujo",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-005-P001",
-      "event_id": "EVT-005",
-      "name": "Camila Pereira",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 4
-    },
-    {
-      "id": "EVT-005-P002",
-      "event_id": "EVT-005",
-      "name": "Fernanda Freitas",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 2
-    },
-    {
-      "id": "EVT-005-P003",
-      "event_id": "EVT-005",
-      "name": "Natalia Monteiro",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 4
-    },
-    {
-      "id": "EVT-005-P004",
-      "event_id": "EVT-005",
-      "name": "Bruno Ferreira",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 2
-    },
-    {
-      "id": "EVT-005-P005",
-      "event_id": "EVT-005",
-      "name": "Carlos Martins",
-      "type": "vip",
-      "status": "outside",
-      "checkin_count": 4
-    },
-    {
-      "id": "EVT-005-P006",
-      "event_id": "EVT-005",
-      "name": "Isabela Rocha",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-005-P007",
-      "event_id": "EVT-005",
-      "name": "Larissa Alves",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-005-P008",
-      "event_id": "EVT-005",
-      "name": "Felipe Ferreira",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-005-P009",
-      "event_id": "EVT-005",
-      "name": "Eduardo Souza",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-005-P010",
-      "event_id": "EVT-005",
-      "name": "Rodrigo Pereira",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-005-P011",
-      "event_id": "EVT-005",
-      "name": "Vinicius Costa",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-005-P012",
-      "event_id": "EVT-005",
-      "name": "Leticia Gomes",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-005-P013",
-      "event_id": "EVT-005",
-      "name": "Felipe Freitas",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-005-P014",
-      "event_id": "EVT-005",
-      "name": "Leticia Santos",
-      "type": "normal",
-      "status": "inside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-005-P015",
-      "event_id": "EVT-005",
-      "name": "Juliana Martins",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 1
-    },
-    {
-      "id": "EVT-005-P016",
-      "event_id": "EVT-005",
-      "name": "Eduardo Nascimento",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-005-P017",
-      "event_id": "EVT-005",
-      "name": "Rafael Silva",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-005-P018",
-      "event_id": "EVT-005",
-      "name": "Rafael Lima",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-005-P019",
-      "event_id": "EVT-005",
-      "name": "Mariana Oliveira",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
-      "id": "EVT-005-P020",
-      "event_id": "EVT-005",
-      "name": "Isabela Oliveira",
-      "type": "normal",
-      "status": "outside",
-      "checkin_count": 0
-    },
-    {
       "name": "teste",
       "type": "normal",
-      "id": "wJ9brRrT8w0",
-      "event_id": "WIBVm4-4Wuw",
-      "status": "outside",
-      "checkin_count": 0
+      "id": "7DdmdkYr7to",
+      "event_id": "rQsLUIjJenM",
+      "status": "inside",
+      "checkin_count": 1
+    },
+    {
+      "name": "teste vip",
+      "type": "vip",
+      "id": "J0cMlqzEs8Q",
+      "event_id": "rQsLUIjJenM",
+      "status": "inside",
+      "checkin_count": 11
     }
   ],
   "checkins": [
     {
-      "event_id": "EVT-001",
-      "participant_id": "EVT-001-P001",
-      "timestamp": "2026-05-15T01:20:10.586Z",
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "7DdmdkYr7to",
+      "timestamp": "2026-05-15T04:20:22.030Z",
       "success": true,
       "action": "entry",
       "error_reason": null,
-      "id": "VgVWuv-ihbQ"
+      "id": "x4PSSZx073c"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:20:34.886Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "hR1LoRphqHQ"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:20:36.178Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "UTpL8WfwrAc"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:21:48.865Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "5uGX7JtUc38"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:21:51.739Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "371X0te7gzU"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:22:09.730Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "ice50s611GY"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:24:10.504Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "Fubjb2-QWWo"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:24:11.114Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "W50tjAhXxlA"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:25:41.661Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "ByKGjAHbmbY"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:25:42.303Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "UKk8pa0o7f0"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:25:42.971Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "nt_aptwd8W4"
+    },
+    {
+      "event_id": "rQsLUIjJenM",
+      "participant_id": "J0cMlqzEs8Q",
+      "timestamp": "2026-05-15T04:25:43.492Z",
+      "success": true,
+      "action": "entry",
+      "error_reason": null,
+      "id": "i-DYradcU9A"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

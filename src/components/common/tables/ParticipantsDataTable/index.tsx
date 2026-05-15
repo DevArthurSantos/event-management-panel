@@ -71,9 +71,9 @@ export function ParticipantsDataTable({
   });
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white">
+    <div className="overflow-hidden rounded-md border border-gray-100 bg-white">
       <table className="w-full">
-        <thead className="bg-zinc-100">
+        <thead className="bg-gray-100">
           {table
             .getHeaderGroups()
             .map((headerGroup) => (

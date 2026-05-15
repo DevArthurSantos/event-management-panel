@@ -28,13 +28,13 @@ export function CheckinChart({
   ];
 
   return (
-    <div className="rounded-2xl border border-zinc-200 p-5">
+    <div className="rounded-md border border-gray-100 p-5">
       <div className="mb-5">
         <h2 className="text-lg font-semibold">
           Taxa de Entrada
         </h2>
 
-        <p className="text-sm text-zinc-500">
+        <p className="text-sm text-gray-500">
           Comparativo de presença.
         </p>
       </div>

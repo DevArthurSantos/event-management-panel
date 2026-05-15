@@ -1,4 +1,4 @@
-import { Checkin } from "@/src/infra/schemas/checkin.schema";
+import { Checkin } from "@/src/infra/schemas/chekin/checkin.schema";
 
 interface Props {
   checkins: Checkin[];
@@ -8,7 +8,7 @@ export function CheckinHistory({
   checkins,
 }: Props) {
   return (
-    <div className="rounded-2xl border border-zinc-200 p-5">
+    <div className="rounded-md border border-gray-100 p-5 h-107.5 overflow-auto">
       <h2 className="mb-5 text-lg font-semibold">
         Histórico
       </h2>
@@ -24,7 +24,7 @@ export function CheckinHistory({
                 {checkin.action}
               </p>
 
-              <p className="text-sm text-zinc-500">
+              <p className="text-sm text-gray-500">
                 {checkin.timestamp}
               </p>
             </div>

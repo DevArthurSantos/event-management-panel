@@ -34,7 +34,7 @@ export default function CreateEventPage() {
           Novo Evento
         </h1>
 
-        <p className="mt-2 text-zinc-500">
+        <p className="mt-2 text-gray-500">
           Crie um novo evento.
         </p>
       </div>
