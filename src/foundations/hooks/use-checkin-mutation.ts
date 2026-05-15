@@ -24,7 +24,23 @@ export function useCheckinMutation() {
       const validation = canCheckin(event, participant);
 
       if (!validation.allowed) {
-        throw new Error(validation.reason);
+        await createCheckin({
+          event_id: event.id,
+          participant_id: participant.id,
+          timestamp: new Date().toISOString(),
+          success: false,
+          action: "entry",
+          error_reason: validation.errorKey || validation.reason,
+        });
+
+        await updateEvent(event.id, {
+          error_count: event.error_count + 1,
+        });
+
+        return {
+          success: false,
+          reason: validation.reason,
+        };
       }
 
       await createCheckin({
@@ -49,15 +65,20 @@ export function useCheckinMutation() {
         ),
       });
 
-      return true;
+      return {
+        success: true,
+      };
     },
 
-    onSuccess: (_data, variables) => {
+    onSuccess: (data, variables) => {
       const { event } = variables;
 
-      toast.success('Check-in realizado com sucesso');
+      if (data.success) {
+        toast.success('Check-in realizado com sucesso');
+      } else {
+        toast.error(data.reason || 'Check-in negado');
+      }
 
-      // ✅ IMPORTANTÍSSIMO: invalidar com eventId
       queryClient.invalidateQueries({
         queryKey: ['participants', event.id],
       });
@@ -72,7 +93,8 @@ export function useCheckinMutation() {
     },
 
     onError: (error: Error) => {
-      toast.error(error.message);
+      // aqui só erro técnico (rede, crash, etc)
+      toast.error('Erro inesperado: ' + error.message);
     },
   });
 }

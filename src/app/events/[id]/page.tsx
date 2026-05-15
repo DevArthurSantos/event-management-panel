@@ -1,11 +1,11 @@
 'use client';
 
+import { ParticipantsTable } from '@/src/components/common/tables/ParticipantsTable';
 import EventErrorState from '@/src/components/feedback/erros/EventErrorState';
 import LoadingEventState from '@/src/components/feedback/loadings/LoadingEventState';
 import { CheckinChart } from '@/src/components/patterns/dashboard/CheckinChart';
 import { CheckinHistory } from '@/src/components/patterns/dashboard/CheckinHistory';
 import { MetricCard } from '@/src/components/patterns/dashboard/MetricCard';
-import { ParticipantsTable } from '@/src/components/patterns/dashboard/ParticipantsTable';
 import { Button } from '@/src/components/ui/Button';
 import { useCheckins } from '@/src/foundations/hooks/use-checkin';
 import { useCheckinMutation } from '@/src/foundations/hooks/use-checkin-mutation';
@@ -89,7 +89,7 @@ export default function EventDetailsPage() {
         <ParticipantsTable
           participants={participants}
           onCheckin={(participant) =>
-            mutation.mutate({ event, participant })
+            mutation.mutateAsync({ event, participant })
           }
         />
       </div>
