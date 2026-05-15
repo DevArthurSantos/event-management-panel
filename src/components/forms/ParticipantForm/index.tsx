@@ -3,20 +3,19 @@
 import { useForm } from 'react-hook-form';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Event, eventSchema } from '@/src/infra/schemas/event.schema';
+import { Participant, participantSchema } from '@/src/infra/schemas/participant.schema';
 import { Input } from '@/src/components/ui/forms/Inputs';
 import { Button } from '@/src/components/ui/Button';
 
-
 interface Props {
-  defaultValues?: Partial<Event>;
+  defaultValues?: Partial<Participant>;
 
   onSubmit: (
-    values: Event,
+    values: Participant,
   ) => Promise<void>;
 }
 
-export function EventForm({
+export function ParticipantForm({
   defaultValues,
   onSubmit,
 }: Props) {
@@ -24,9 +23,14 @@ export function EventForm({
     register,
     handleSubmit,
 
-    formState: { errors, isSubmitting },
-  } = useForm<Event>({
-    resolver: zodResolver(eventSchema),
+    formState: {
+      errors,
+      isSubmitting,
+    },
+  } = useForm<Participant>({
+    resolver: zodResolver(
+      participantSchema,
+    ),
 
     defaultValues,
   });
@@ -38,7 +42,7 @@ export function EventForm({
     >
       <div>
         <Input
-          placeholder="Nome do evento"
+          placeholder="Nome"
           {...register('name')}
         />
 
@@ -51,39 +55,37 @@ export function EventForm({
 
       <div>
         <Input
-          placeholder="Local"
-          {...register('location')}
+          placeholder="name"
+          {...register('name')}
         />
 
-        {errors.location && (
+        {errors.name && (
           <p className="mt-2 text-sm text-red-500">
-            {errors.location.message}
+            {errors.name.message}
           </p>
         )}
       </div>
 
       <div>
-        <Input
-          type="date"
-          {...register('date')}
-        />
-      </div>
+        <select
+          {...register('type')}
+          className="h-10 w-full rounded-lg border border-zinc-300 px-3 text-sm"
+        >
+          <option value="normal">
+            Normal
+          </option>
 
-      <div>
-        <Input
-          type="number"
-          placeholder="Participantes esperados"
-          {...register('expected_count', {
-            valueAsNumber: true,
-          })}
-        />
+          <option value="vip">
+            VIP
+          </option>
+        </select>
       </div>
 
       <Button
         type="submit"
         disabled={isSubmitting}
       >
-        Salvar Evento
+        Salvar Participante
       </Button>
     </form>
   );

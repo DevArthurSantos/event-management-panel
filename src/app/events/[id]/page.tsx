@@ -1,75 +1,127 @@
 'use client';
 
+import EventErrorState from '@/src/components/feedback/Erros/EventErrorState';
+import LoadingEventState from '@/src/components/feedback/Loadings/LoadingEventState';
+import { CheckinChart } from '@/src/components/patterns/dashboard/CheckinChart';
+import { CheckinHistory } from '@/src/components/patterns/dashboard/CheckinHistory';
+import { MetricCard } from '@/src/components/patterns/dashboard/MetricCard';
+import { ParticipantsTable } from '@/src/components/patterns/dashboard/ParticipantsTable';
+import { Button } from '@/src/components/ui/Button';
+import { useCheckins } from '@/src/foundations/hooks/use-checkin';
+import { useCheckinMutation } from '@/src/foundations/hooks/use-checkin-mutation';
 import { useEvent } from '@/src/foundations/hooks/use-event';
+import { useParticipants } from '@/src/foundations/hooks/use-participants';
+import Link from 'next/link';
+
 import { useParams } from 'next/navigation';
+
+
 
 export default function EventDetailsPage() {
   const params = useParams();
 
   const eventId = params.id as string;
 
-  const { data, isLoading, isError } = useEvent(eventId);
+  const {
+    data: event,
+    isLoading,
+    isError,
+  } = useEvent(eventId);
+
+  const {
+    data: participants = [],
+  } = useParticipants(eventId);
+
+  const {
+    data: checkins = [],
+  } = useCheckins(eventId);
+
+  const mutation =
+    useCheckinMutation();
 
   if (isLoading) {
-    return <LoadingState />;
+    return <LoadingEventState />;
   }
 
-  if (isError || !data) {
-    return <ErrorState />;
+  if (isError || !event) {
+    return <EventErrorState />;
   }
 
   return (
     <main className="mx-auto max-w-7xl p-6">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold">
-          {data.name}
-        </h1>
+      <div className="mb-8 flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold">
+            {event.name}
+          </h1>
 
-        <p className="mt-2 text-zinc-500">
-          {data.location}
-        </p>
+          <p className="mt-2 text-zinc-500">
+            {event.location}
+          </p>
+        </div>
+
+        <div className="flex gap-3">
+          <Link
+            href={`/eventos/${event.id}/editar`}
+          >
+            <Button>
+              Editar Evento
+            </Button>
+          </Link>
+
+          <Link
+            href={`/eventos/${event.id}/participantes/criar`}
+          >
+            <Button>
+              Novo Participante
+            </Button>
+          </Link>
+        </div>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <div className="rounded-2xl border p-5">
-          <p className="text-sm text-zinc-500">
-            Participantes Esperados
-          </p>
+        <MetricCard
+          title="Esperados"
+          value={event.expected_count}
+        />
 
-          <h2 className="mt-3 text-3xl font-bold">
-            {data.expected_count}
-          </h2>
-        </div>
+        <MetricCard
+          title="Check-ins"
+          value={event.checkin_count}
+        />
 
-        <div className="rounded-2xl border p-5">
-          <p className="text-sm text-zinc-500">
-            Check-ins
-          </p>
+        <MetricCard
+          title="Erros"
+          value={event.error_count}
+        />
 
-          <h2 className="mt-3 text-3xl font-bold">
-            {data.checkin_count}
-          </h2>
-        </div>
+        <MetricCard
+          title="Taxa"
+          value={`${event.entry_rate}%`}
+        />
+      </div>
 
-        <div className="rounded-2xl border p-5">
-          <p className="text-sm text-zinc-500">
-            Erros
-          </p>
+      <div className="mt-6 grid gap-6 xl:grid-cols-2">
+        <CheckinChart
+          checkins={event.checkin_count}
+          expected={event.expected_count}
+        />
 
-          <h2 className="mt-3 text-3xl font-bold">
-            {data.error_count}
-          </h2>
-        </div>
+        <CheckinHistory
+          checkins={checkins}
+        />
+      </div>
 
-        <div className="rounded-2xl border p-5">
-          <p className="text-sm text-zinc-500">
-            Taxa de Entrada
-          </p>
-
-          <h2 className="mt-3 text-3xl font-bold">
-            {data.entry_rate}%
-          </h2>
-        </div>
+      <div className="mt-6">
+        <ParticipantsTable
+          participants={participants}
+          onCheckin={(participant) =>
+            mutation.mutate({
+              event,
+              participant,
+            })
+          }
+        />
       </div>
     </main>
   );
