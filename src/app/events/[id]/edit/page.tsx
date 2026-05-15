@@ -4,21 +4,36 @@ import LoadingEventState from '@components/feedback/loadings/LoadingEventState';
 import { EventForm } from '@components/common/forms/EventForm';
 import { useEvent } from '@foundations/hooks/use-event';
 import { useUpdateEvent } from '@foundations/hooks/use-update-event';
-import { CreateEventInput } from '@infra/schemas/event/create-event.schema';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
+import { UpdateEventInput } from '@infra/schemas/event/update-event.schema';
 
 export default function EditEventPage() {
   const router = useRouter();
   const params = useParams();
-  const eventId = params.id as string;
+
+  const eventId =
+    typeof params?.id === 'string'
+      ? params.id
+      : Array.isArray(params?.id)
+      ? params.id[0]
+      : '';
 
   const { data, isLoading } = useEvent(eventId);
   const mutation = useUpdateEvent();
 
   if (isLoading || !data) return <LoadingEventState />;
 
-  async function handleSubmit(values: CreateEventInput) {
+  const defaultValues: UpdateEventInput = {
+    name: data.name ?? '',
+    location: data.location ?? '',
+    status: data.status ?? 'active',
+    description: data.description ?? '',
+    expected_count: data.expected_count ?? 0,
+    date: data.date ? data.date.split('T')[0] : '',
+  };
+
+  async function handleSubmit(values: UpdateEventInput) {
     await mutation.mutateAsync({
       id: eventId,
       payload: {
@@ -26,6 +41,7 @@ export default function EditEventPage() {
         date: new Date(values.date).toISOString(),
       },
     });
+
     router.push(`/events/${eventId}`);
   }
 
@@ -41,16 +57,20 @@ export default function EditEventPage() {
             Voltar para detalhes
           </Link>
 
-          <h1 className="text-4xl font-semibold tracking-tighter text-aura-text">
+          <h1 className="text-4xl font-semibold tracking-tighter">
             Editar Evento
           </h1>
+
           <p className="mt-3 text-aura-text-secondary">
             Ajuste as informações do evento.
           </p>
         </div>
 
         <div className="card p-10">
-          <EventForm defaultValues={data} onSubmit={handleSubmit} />
+          <EventForm
+            defaultValues={defaultValues}
+            onSubmit={handleSubmit}
+          />
         </div>
 
         <p className="mt-8 text-center text-xs text-aura-text-secondary font-mono">

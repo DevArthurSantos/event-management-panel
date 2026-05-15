@@ -27,13 +27,16 @@ export async function PATCH(
   const body = await req.json();
   const { id } = await params;
 
-  const event = db.events.find((e) => e.id === id);
+  const participant = db.participants.find((p) => p.id === id);
 
-  if (!event) {
-    return NextResponse.json({ error: "Event not found" }, { status: 404 });
+  if (!participant) {
+    return NextResponse.json(
+      { error: "Participant not found" },
+      { status: 404 }
+    );
   }
 
-  Object.assign(event, body);
+  Object.assign(participant, body);
 
-  return NextResponse.json(event);
+  return NextResponse.json(participant);
 }

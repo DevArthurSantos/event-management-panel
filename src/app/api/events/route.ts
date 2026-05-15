@@ -1,20 +1,20 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { db } from "../_db";
 
 export async function GET() {
   return NextResponse.json(db.events);
 }
 
-export async function PATCH(req: Request) {
+
+export async function POST(req: NextRequest) {
   const body = await req.json();
 
-  const event = db.events.find((e) => e.id === body.id);
+  const newEvent = {
+    id: crypto.randomUUID(),
+    ...body,
+  };
 
-  if (!event) {
-    return NextResponse.json({ error: "Event not found" }, { status: 404 });
-  }
+  db.events.push(newEvent);
 
-  Object.assign(event, body);
-
-  return NextResponse.json(event);
+  return NextResponse.json(newEvent, { status: 201 });
 }

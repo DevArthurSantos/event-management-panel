@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { db } from "../_db";
 
 export async function GET(req: Request) {
@@ -12,19 +12,15 @@ export async function GET(req: Request) {
   return NextResponse.json(participants);
 }
 
-export async function PATCH(req: Request) {
+export async function POST(req: NextRequest) {
   const body = await req.json();
 
-  const participant = db.participants.find((p) => p.id === body.id);
+  const newParticipant = {
+    id: crypto.randomUUID(),
+    ...body,
+  };
 
-  if (!participant) {
-    return NextResponse.json(
-      { error: "Participant not found" },
-      { status: 404 }
-    );
-  }
+  db.participants.push(newParticipant);
 
-  Object.assign(participant, body);
-
-  return NextResponse.json(participant);
+  return NextResponse.json(newParticipant, { status: 201 });
 }
