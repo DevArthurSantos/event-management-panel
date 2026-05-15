@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/src/components/ui/Button';
 import { useDeleteEvent } from '@/src/foundations/hooks/use-delete-event';
 import { useRouter } from 'next/navigation';
 

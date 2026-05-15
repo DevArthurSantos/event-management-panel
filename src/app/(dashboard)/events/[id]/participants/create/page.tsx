@@ -32,7 +32,7 @@ export default function CreateParticipantPage() {
     });
 
     router.push(
-      `/eventos/${eventId}`,
+      `/events/${eventId}`,
     );
   }
 

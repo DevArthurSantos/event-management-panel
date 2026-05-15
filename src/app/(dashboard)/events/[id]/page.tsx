@@ -1,7 +1,7 @@
 'use client';
 
-import EventErrorState from '@/src/components/feedback/Erros/EventErrorState';
-import LoadingEventState from '@/src/components/feedback/Loadings/LoadingEventState';
+import EventErrorState from '@/src/components/feedback/erros/EventErrorState';
+import LoadingEventState from '@/src/components/feedback/loadings/LoadingEventState';
 import { CheckinChart } from '@/src/components/patterns/dashboard/CheckinChart';
 import { CheckinHistory } from '@/src/components/patterns/dashboard/CheckinHistory';
 import { MetricCard } from '@/src/components/patterns/dashboard/MetricCard';
@@ -62,7 +62,7 @@ export default function EventDetailsPage() {
 
         <div className="flex gap-3">
           <Link
-            href={`/eventos/${event.id}/editar`}
+            href={`/events/${event.id}/edit`}
           >
             <Button>
               Editar Evento
@@ -70,7 +70,7 @@ export default function EventDetailsPage() {
           </Link>
 
           <Link
-            href={`/eventos/${event.id}/participantes/criar`}
+            href={`/events/${event.id}/participants/create`}
           >
             <Button>
               Novo Participante
